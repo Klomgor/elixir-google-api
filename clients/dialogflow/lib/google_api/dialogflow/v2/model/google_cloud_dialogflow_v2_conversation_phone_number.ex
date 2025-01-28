@@ -21,15 +21,18 @@ defmodule GoogleApi.Dialogflow.V2.Model.GoogleCloudDialogflowV2ConversationPhone
 
   ## Attributes
 
+  *   `countryCode` (*type:* `integer()`, *default:* `nil`) - Output only. Desired country code for the phone number.
   *   `phoneNumber` (*type:* `String.t`, *default:* `nil`) - Output only. The phone number to connect to this conversation.
   """
 
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
+          :countryCode => integer() | nil,
           :phoneNumber => String.t() | nil
         }
 
+  field(:countryCode)
   field(:phoneNumber)
 end
 
