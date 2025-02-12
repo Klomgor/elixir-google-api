@@ -17,7 +17,7 @@
 
 defmodule GoogleApi.AIPlatform.V1.Model.CloudAiPlatformCommonCreatePipelineJobApiErrorDetail do
   @moduledoc """
-  Create API error message for Vertex Pipeline. Next Id: 3.
+  Create API error message for Vertex Pipeline.
 
   ## Attributes
 

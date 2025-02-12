@@ -22,7 +22,7 @@ defmodule GoogleApi.Connectors.V1.Model.EventSubscriptionDestination do
   ## Attributes
 
   *   `endpoint` (*type:* `GoogleApi.Connectors.V1.Model.EndPoint.t`, *default:* `nil`) - OPTION 1: Hit an endpoint when we receive an event.
-  *   `gsutil` (*type:* `GoogleApi.Connectors.V1.Model.GSUtil.t`, *default:* `nil`) - OPTION 2: Write the event to Cloud Storage bucket.
+  *   `pubsub` (*type:* `GoogleApi.Connectors.V1.Model.PubSub.t`, *default:* `nil`) - OPTION 3: Write the event to Pub/Sub topic.
   *   `serviceAccount` (*type:* `String.t`, *default:* `nil`) - Service account needed for runtime plane to trigger IP workflow.
   *   `type` (*type:* `String.t`, *default:* `nil`) - type of the destination
   """
@@ -31,13 +31,13 @@ defmodule GoogleApi.Connectors.V1.Model.EventSubscriptionDestination do
 
   @type t :: %__MODULE__{
           :endpoint => GoogleApi.Connectors.V1.Model.EndPoint.t() | nil,
-          :gsutil => GoogleApi.Connectors.V1.Model.GSUtil.t() | nil,
+          :pubsub => GoogleApi.Connectors.V1.Model.PubSub.t() | nil,
           :serviceAccount => String.t() | nil,
           :type => String.t() | nil
         }
 
   field(:endpoint, as: GoogleApi.Connectors.V1.Model.EndPoint)
-  field(:gsutil, as: GoogleApi.Connectors.V1.Model.GSUtil)
+  field(:pubsub, as: GoogleApi.Connectors.V1.Model.PubSub)
   field(:serviceAccount)
   field(:type)
 end

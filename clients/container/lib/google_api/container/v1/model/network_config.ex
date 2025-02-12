@@ -24,6 +24,7 @@ defmodule GoogleApi.Container.V1.Model.NetworkConfig do
   *   `datapathProvider` (*type:* `String.t`, *default:* `nil`) - The desired datapath provider for this cluster. By default, uses the IPTables-based kube-proxy implementation.
   *   `defaultEnablePrivateNodes` (*type:* `boolean()`, *default:* `nil`) - Controls whether by default nodes have private IP addresses only. It is invalid to specify both PrivateClusterConfig.enablePrivateNodes and this field at the same time. To update the default setting, use ClusterUpdate.desired_default_enable_private_nodes
   *   `defaultSnatStatus` (*type:* `GoogleApi.Container.V1.Model.DefaultSnatStatus.t`, *default:* `nil`) - Whether the cluster disables default in-node sNAT rules. In-node sNAT rules will be disabled when default_snat_status is disabled. When disabled is set to false, default IP masquerade rules will be applied to the nodes to prevent sNAT on cluster internal traffic.
+  *   `disableL4LbFirewallReconciliation` (*type:* `boolean()`, *default:* `nil`) - Disable L4 load balancer VPC firewalls to enable firewall policies.
   *   `dnsConfig` (*type:* `GoogleApi.Container.V1.Model.DNSConfig.t`, *default:* `nil`) - DNSConfig contains clusterDNS config for this cluster.
   *   `enableCiliumClusterwideNetworkPolicy` (*type:* `boolean()`, *default:* `nil`) - Whether CiliumClusterwideNetworkPolicy is enabled on this cluster.
   *   `enableFqdnNetworkPolicy` (*type:* `boolean()`, *default:* `nil`) - Whether FQDN Network Policy is enabled on this cluster.
@@ -32,7 +33,7 @@ defmodule GoogleApi.Container.V1.Model.NetworkConfig do
   *   `enableMultiNetworking` (*type:* `boolean()`, *default:* `nil`) - Whether multi-networking is enabled for this cluster.
   *   `gatewayApiConfig` (*type:* `GoogleApi.Container.V1.Model.GatewayAPIConfig.t`, *default:* `nil`) - GatewayAPIConfig contains the desired config of Gateway API on this cluster.
   *   `inTransitEncryptionConfig` (*type:* `String.t`, *default:* `nil`) - Specify the details of in-transit encryption. Now named inter-node transparent encryption.
-  *   `network` (*type:* `String.t`, *default:* `nil`) - Output only. The relative name of the Google Compute Engine network(https://cloud.google.com/compute/docs/networks-and-firewalls#networks) to which the cluster is connected. Example: projects/my-project/global/networks/my-network
+  *   `network` (*type:* `String.t`, *default:* `nil`) - Output only. The relative name of the Google Compute Engine [network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks) to which the cluster is connected. Example: projects/my-project/global/networks/my-network
   *   `networkPerformanceConfig` (*type:* `GoogleApi.Container.V1.Model.ClusterNetworkPerformanceConfig.t`, *default:* `nil`) - Network bandwidth tier configuration.
   *   `privateIpv6GoogleAccess` (*type:* `String.t`, *default:* `nil`) - The desired state of IPv6 connectivity to Google Services. By default, no private IPv6 access to or from Google Services (all access will be via IPv4)
   *   `serviceExternalIpsConfig` (*type:* `GoogleApi.Container.V1.Model.ServiceExternalIPsConfig.t`, *default:* `nil`) - ServiceExternalIPsConfig specifies if services with externalIPs field are blocked or not.
@@ -45,6 +46,7 @@ defmodule GoogleApi.Container.V1.Model.NetworkConfig do
           :datapathProvider => String.t() | nil,
           :defaultEnablePrivateNodes => boolean() | nil,
           :defaultSnatStatus => GoogleApi.Container.V1.Model.DefaultSnatStatus.t() | nil,
+          :disableL4LbFirewallReconciliation => boolean() | nil,
           :dnsConfig => GoogleApi.Container.V1.Model.DNSConfig.t() | nil,
           :enableCiliumClusterwideNetworkPolicy => boolean() | nil,
           :enableFqdnNetworkPolicy => boolean() | nil,
@@ -65,6 +67,7 @@ defmodule GoogleApi.Container.V1.Model.NetworkConfig do
   field(:datapathProvider)
   field(:defaultEnablePrivateNodes)
   field(:defaultSnatStatus, as: GoogleApi.Container.V1.Model.DefaultSnatStatus)
+  field(:disableL4LbFirewallReconciliation)
   field(:dnsConfig, as: GoogleApi.Container.V1.Model.DNSConfig)
   field(:enableCiliumClusterwideNetworkPolicy)
   field(:enableFqdnNetworkPolicy)

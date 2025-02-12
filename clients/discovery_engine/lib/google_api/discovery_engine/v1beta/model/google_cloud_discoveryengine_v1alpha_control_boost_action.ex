@@ -21,9 +21,11 @@ defmodule GoogleApi.DiscoveryEngine.V1beta.Model.GoogleCloudDiscoveryengineV1alp
 
   ## Attributes
 
-  *   `boost` (*type:* `number()`, *default:* `nil`) - Required. Strength of the boost, which should be in [-1, 1]. Negative boost means demotion. Default is 0.0 (No-op).
+  *   `boost` (*type:* `number()`, *default:* `nil`) - Strength of the boost, which should be in [-1, 1]. Negative boost means demotion. Default is 0.0 (No-op).
   *   `dataStore` (*type:* `String.t`, *default:* `nil`) - Required. Specifies which data store's documents can be boosted by this control. Full data store name e.g. projects/123/locations/global/collections/default_collection/dataStores/default_data_store
   *   `filter` (*type:* `String.t`, *default:* `nil`) - Required. Specifies which products to apply the boost to. If no filter is provided all products will be boosted (No-op). Syntax documentation: https://cloud.google.com/retail/docs/filter-and-order Maximum length is 5000 characters. Otherwise an INVALID ARGUMENT error is thrown.
+  *   `fixedBoost` (*type:* `number()`, *default:* `nil`) - Optional. Strength of the boost, which should be in [-1, 1]. Negative boost means demotion. Default is 0.0 (No-op).
+  *   `interpolationBoostSpec` (*type:* `GoogleApi.DiscoveryEngine.V1beta.Model.GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec.t`, *default:* `nil`) - Optional. Complex specification for custom ranking based on customer defined attribute value.
   """
 
   use GoogleApi.Gax.ModelBase
@@ -31,12 +33,22 @@ defmodule GoogleApi.DiscoveryEngine.V1beta.Model.GoogleCloudDiscoveryengineV1alp
   @type t :: %__MODULE__{
           :boost => number() | nil,
           :dataStore => String.t() | nil,
-          :filter => String.t() | nil
+          :filter => String.t() | nil,
+          :fixedBoost => number() | nil,
+          :interpolationBoostSpec =>
+            GoogleApi.DiscoveryEngine.V1beta.Model.GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec.t()
+            | nil
         }
 
   field(:boost)
   field(:dataStore)
   field(:filter)
+  field(:fixedBoost)
+
+  field(:interpolationBoostSpec,
+    as:
+      GoogleApi.DiscoveryEngine.V1beta.Model.GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec
+  )
 end
 
 defimpl Poison.Decoder,

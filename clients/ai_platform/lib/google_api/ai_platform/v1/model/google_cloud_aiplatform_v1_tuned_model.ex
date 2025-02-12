@@ -17,7 +17,7 @@
 
 defmodule GoogleApi.AIPlatform.V1.Model.GoogleCloudAiplatformV1TunedModel do
   @moduledoc """
-  The Model Registry Model and Online Prediction Endpoint assiociated with this TuningJob.
+  The Model Registry Model and Online Prediction Endpoint associated with this TuningJob.
 
   ## Attributes
 

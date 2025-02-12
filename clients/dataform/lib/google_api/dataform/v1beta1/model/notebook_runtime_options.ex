@@ -17,11 +17,11 @@
 
 defmodule GoogleApi.Dataform.V1beta1.Model.NotebookRuntimeOptions do
   @moduledoc """
-
+  Configures various aspects of Dataform notebook runtime.
 
   ## Attributes
 
-  *   `gcsOutputBucket` (*type:* `String.t`, *default:* `nil`) - Optional. The GCS location to upload the result to. Format: `gs://bucket-name`.
+  *   `gcsOutputBucket` (*type:* `String.t`, *default:* `nil`) - Optional. The Google Cloud Storage location to upload the result to. Format: `gs://bucket-name`.
   """
 
   use GoogleApi.Gax.ModelBase
